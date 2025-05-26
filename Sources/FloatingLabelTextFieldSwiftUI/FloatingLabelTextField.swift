@@ -183,12 +183,6 @@ public struct FloatingLabelTextField: View {
             .font(notifier.titleFont)
     }
 
-    // MARK: Bottom Line View
-    var bottomLine: some View {
-        Divider()
-            .frame(height: self.isSelected ? notifier.selectedLineHeight : notifier.lineHeight, alignment: .leading)
-    }
-
     //MARK: Body View
     public var body: some View {
         VStack () {
@@ -215,17 +209,6 @@ public struct FloatingLabelTextField: View {
                     notifier.rightView
                 }
             }
-
-            //MARK: Line View
-            if textFieldValue.isEmpty || !notifier.isShowError {
-                bottomLine
-                    .background((self.isSelected ? notifier.selectedLineColor : notifier.lineColor))
-
-            } else {
-                bottomLine
-                    .background((self.currentError.condition) ? (self.isSelected ? notifier.selectedLineColor : notifier.lineColor) : notifier.errorColor)
-            }
-
         }
         .frame(alignment: .bottomLeading)
     }
